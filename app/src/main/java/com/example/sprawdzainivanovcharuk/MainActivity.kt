@@ -38,6 +38,9 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.Zastępowanie).setOnClickListener {
             findViewById<TextView>(R.id.wyswietlanie).text = findViewById<TextInputEditText>(R.id.wprowadzenie).text
         }
+        findViewById<Button>(R.id.dodawanie).setOnClickListener {
+            findViewById<TextView>(R.id.wyswietlanie).text = findViewById<TextView>(R.id.wyswietlanie).text.toString() + findViewById<TextInputEditText>(R.id.wprowadzenie).text
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
