@@ -10,9 +10,11 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import com.example.sprawdzainivanovcharuk.databinding.ActivityMainBinding
 import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,13 +35,24 @@ class MainActivity : AppCompatActivity() {
 
         binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+                .setAction("Action", null).show()
         }
-        findViewById<Button>(R.id.Zastępowanie).setOnClickListener {
-            findViewById<TextView>(R.id.wyswietlanie).text = findViewById<TextInputEditText>(R.id.wprowadzenie).text
+        var liczba1 = 0;
+        var liczba2 = 0;
+        var odpowiedz = 0;
+
+        findViewById<Button>(R.id.zast).setOnClickListener {
+            findViewById<TextView>(R.id.textView).text = findViewById<TextInputEditText>(R.id.wprowadzenie).text
+        }
+        findViewById<Button>(R.id.dod).setOnClickListener {
+            findViewById<TextView>(R.id.textView).text = findViewById<TextView>(R.id.textView).text.toString() + findViewById<TextInputEditText>(R.id.wprowadzenie).text.toString()
         }
         findViewById<Button>(R.id.dodawanie).setOnClickListener {
-            findViewById<TextView>(R.id.wyswietlanie).text = findViewById<TextView>(R.id.wyswietlanie).text.toString() + findViewById<TextInputEditText>(R.id.wprowadzenie).text
+            liczba1 = findViewById<EditText>(R.id.Pierwszaliczba).text.toString().toInt()
+            liczba2 = findViewById<EditText>(R.id.Drugaliczba).text.toString().toInt()
+            odpowiedz = liczba1 + liczba2
+            findViewById<TextView>(R.id.textView).text = odpowiedz.toString()
+
         }
     }
 
